@@ -1,0 +1,170 @@
+{
+  "kind": "collectionType",
+  "collectionName": "plantas",
+  "info": {
+    "singularName": "planta",
+    "pluralName": "plantas",
+    "displayName": "planta",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "codigoInterno": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "tipoOperacion": {
+      "type": "enumeration",
+      "enum": [
+        "nuevo",
+        "migracion"
+      ],
+      "required": true
+    },
+    "grupoInterno": {
+      "type": "enumeration",
+      "enum": [
+        "fc01_orquideas",
+        "fc02_anturios",
+        "fc03_bromelias",
+        "fc04_otras_plantas",
+        "fc05_insumos_venta",
+        "fc06_insumos_produccion",
+        "fc07_otros_insumos"
+      ],
+      "required": true
+    },
+    "codigoInternoLVS": {
+      "type": "string"
+    },
+    "genero": {
+      "type": "string",
+      "required": true
+    },
+    "especie": {
+      "type": "string",
+      "required": true
+    },
+    "descripcion": {
+      "type": "string",
+      "required": true
+
+    },
+    "costoUnitario": {
+      "type": "biginteger"
+    },
+    "precioVenta": {
+      "type": "biginteger"
+    },
+    "ultimaSiembra": {
+      "type": "date"
+    },
+    "plantaOrigen": {
+      "type": "string"
+    },
+    "estadoInterno": {
+      "type": "enumeration",
+      "enum": [
+        "inventario",
+        "resiembra",
+        "comercial",
+        "agotado"
+      ]
+    },
+    "estadoComercial": {
+      "type": "enumeration",
+      "enum": [
+        "disponible",
+        "no disponible",
+        "vendido",
+        "consignacion"
+      ]
+    },
+    "estadoWeb": {
+      "type": "enumeration",
+      "enum": [
+        "disponible",
+        "no disponible"
+      ]
+    },
+    "ubicacionInvernadero": {
+      "type": "enumeration",
+      "enum": [
+        "invernadero_1",
+        "invernadero_2",
+        "invernadero_3",
+        "invernadero_4",
+        "invernadero_5",
+        "invernadero_6",
+        "invernadero_7",
+        "invernadero_8"
+      ]
+    },
+    "ubicacionCama": {
+      "type": "enumeration",
+      "enum": [
+        "cama_1",
+        "cama_2",
+        "cama_3",
+        "cama_4",
+        "cama_5",
+        "cama_6",
+        "cama_7",
+        "cama_8",
+        "cama_9",
+        "cama_10"
+      ]
+    },
+    "ubicacionZona": {
+      "type": "enumeration",
+      "enum": [
+        "zona_1",
+        "zona_2",
+        "zona_3",
+        "zona_4",
+        "zona_5",
+        "zona_6",
+        "zona_7",
+        "zona_8",
+        "zona_9",
+        "zona_10",
+        "zona_11"
+      ]
+    },
+    "proveedor": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::proveedor.proveedor"
+    },
+    "cliente": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::cliente.cliente"
+    },
+    "fechaCreacion": {
+      "type": "date"
+    },
+    "fechaUltimaModificacion": {
+      "type": "date"
+    },
+    "horaCreacion": {
+      "type": "time"
+    },
+    "horaModificacion": {
+      "type": "time"
+    },
+    "creadoPorUsuario": {
+      "type": "string"
+    },
+    "modificadoPorUsuario": {
+      "type": "string"
+    },
+    "deleted": {
+      "type": "boolean"
+    }
+  }
+}

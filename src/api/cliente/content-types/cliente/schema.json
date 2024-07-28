@@ -1,0 +1,137 @@
+{
+  "kind": "collectionType",
+  "collectionName": "clientes",
+  "info": {
+    "singularName": "cliente",
+    "pluralName": "clientes",
+    "displayName": "cliente",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "codigoInterno": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "tipoCliente": {
+      "type": "enumeration",
+      "enum": [
+        "directo",
+        "consignacion"
+      ],
+      "required": true
+    },
+    "tipoDocIdentidad": {
+      "type": "enumeration",
+      "enum": [
+        "cc",
+        "nit",
+        "pp"
+      ],
+      "required": true
+    },
+    "docIdentidad": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "fechaNacimiento": {
+      "type": "date"
+    },
+    "nombre1": {
+      "type": "string",
+      "required": true
+    },
+    "nombre2": {
+      "type": "string"
+    },
+    "apellido1": {
+      "type": "string",
+      "required": true
+    },
+    "apellido2": {
+      "type": "string"
+    },
+    "pais": {
+      "type": "string",
+      "required": true
+    },
+    "ciudad": {
+      "type": "string",
+      "required": true
+    },
+    "direccion": {
+      "type": "string",
+      "required": true
+    },
+    "cel": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "categoriaCliente": {
+      "type": "enumeration",
+      "enum": [
+        "standard",
+        "premium"
+      ],
+      "required": true
+    },
+    "ventasConsignacion": {
+      "type": "enumeration",
+      "enum": [
+        "si",
+        "no"
+      ]
+    },
+    "estado": {
+      "type": "enumeration",
+      "enum": [
+        "activo",
+        "inactivo"
+      ],
+      "required": true
+    },
+    "numeroExpediente": {
+      "type": "string",
+      "required": true
+    },
+    "fechaCreacion": {
+      "type": "date",
+      "required": true
+    },
+    "horaCreacion": {
+      "type": "time",
+      "required": true
+    },
+    "fechaUltimaModificacion": {
+      "type": "date",
+      "required": true
+    },
+    "horaModificacion": {
+      "type": "time",
+      "required": true
+    },
+    "creadoPorUsuario": {
+      "type": "string",
+      "required": true
+    },
+    "modificadoPorUsuario": {
+      "type": "string",
+      "required": true
+    },
+    "deleted": {
+      "type": "boolean",
+      "default" : false
+    }
+  }
+}

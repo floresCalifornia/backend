@@ -1,0 +1,145 @@
+{
+  "kind": "collectionType",
+  "collectionName": "empleados",
+  "info": {
+    "singularName": "empleado",
+    "pluralName": "empleados",
+    "displayName": "Empleado",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "codigoInterno": {
+      "type": "string"
+    },
+    "tipoDocIdentidad": {
+      "type": "enumeration",
+      "enum": [
+        "cc",
+        "nit",
+        "pp"
+      ],
+      "required": true
+    },
+    "docIdentidad": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "fechaNacimiento": {
+      "type": "date"
+    },
+    "nombre1": {
+      "type": "string",
+      "required": true
+    },
+    "nombre2": {
+      "type": "string"
+    },
+    "apellido1": {
+      "type": "string",
+      "required": true
+    },
+    "apellido2": {
+      "type": "string"
+    },
+    "pais": {
+      "type": "string",
+      "required": true
+    },
+    "ciudad": {
+      "type": "string",
+      "required": true
+    },
+    "direccion": {
+      "type": "string",
+      "required": true
+    },
+    "cel": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "webAccessAllowed": {
+      "type": "boolean"
+    },
+    "usuario": {
+      "type": "string"
+    },
+    "password": {
+      "type": "string"
+    },
+    "departamento": {
+      "type": "enumeration",
+      "enum": [
+        "administracion",
+        "produccion"
+      ]
+    },    
+    "tipoContrato": {
+      "type": "enumeration",
+      "enum": [
+        "definido",
+        "indefinido",
+        "servicios"
+      ]
+    },
+    "cargo": {
+      "type": "enumeration",
+      "enum": [
+        "auxiliar",
+        "analista",
+        "director",
+        "gerente"
+      ]
+    },
+    "estado": {
+      "type": "enumeration",
+      "enum": [
+        "activo",
+        "inactivo"
+      ],
+      "required": true
+    },
+    "numeroExpediente": {
+      "type": "string",
+      "required": true
+    },
+    "fechaCreacion": {
+      "type": "date",
+      "required": true
+    },
+    "horaCreacion": {
+      "type": "time",
+      "required": true
+    },
+    "fechaUltimaModificacion": {
+      "type": "date",
+      "required": true
+    },
+    "horaModificacion": {
+      "type": "time",
+      "required": true
+    },
+    "creadoPorUsuario": {
+      "type": "string",
+      "required": true
+    },
+    "modificadoPorUsuario": {
+      "type": "string",
+      "required": true
+    },
+    "deleted": {
+      "type": "boolean",
+      "required": true
+    }
+  }
+}

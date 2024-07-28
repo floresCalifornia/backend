@@ -1,0 +1,149 @@
+{
+  "kind": "collectionType",
+  "collectionName": "insumo_ventas",
+  "info": {
+    "singularName": "insumo-venta",
+    "pluralName": "insumo-ventas",
+    "displayName": "insumoVenta"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "codigoInterno": {
+      "type": "string"
+    },
+    "grupoInterno": {
+      "type": "enumeration",
+      "enum": [
+        "fc01_orquideas",
+        "fc02_anturios",
+        "fc03_bromelias",
+        "fc04_otras_plantas",
+        "fc05_insumos_venta",
+        "fc06_insumos_produccion",
+        "fc07_otros_insumos"
+      ],
+      "required": true
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "categoria": {
+      "type": "enumeration",
+      "enum": [
+        "materas",
+        "fertilizantes",
+        "marcacion",
+        "otros"
+      ]
+    },
+    "cantidad": {
+      "type": "biginteger"
+    },
+    "unidadMedida": {
+      "type": "enumeration",
+      "enum": [
+        "un",
+        "gr",
+        "kg"
+      ]
+    },
+    "estadoInterno": {
+      "type": "enumeration",
+      "enum": [
+        "inventario",
+        "resiembra",
+        "comercial",
+        "disponible",
+        "agotado"
+      ]
+    },
+    "estadoComercial": {
+      "type": "enumeration",
+      "enum": [
+        "disponible",
+        "vendido",
+        "consignacion"
+      ]
+    },
+    "estadoWeb": {
+      "type": "enumeration",
+      "enum": [
+        "disponible",
+        "no disponible"
+      ]
+    },
+    "ubicacionBodega": {
+      "type": "enumeration",
+      "enum": [
+        "bodega_1",
+        "bodega_2",
+        "bodega_3",
+        "bodega_4",
+        "bodega_5",
+        "bodega_6",
+        "bodega_7",
+        "bodega_8"
+      ]
+    },
+    "ubicacionEstanteria": {
+      "type": "enumeration",
+      "enum": [
+        "estanteria_1",
+        "estanteria_2",
+        "estanteria_3",
+        "estanteria_4",
+        "estanteria_5",
+        "estanteria_6",
+        "estanteria_7",
+        "estanteria_8",
+        "estanteria_9",
+        "estanteria_10"
+      ]
+    },
+    "ubicacionZona": {
+      "type": "enumeration",
+      "enum": [
+        "zona_1",
+        "zona_2",
+        "zona_3",
+        "zona_4",
+        "zona_5",
+        "zona_6",
+        "zona_7",
+        "zona_8",
+        "zona_9",
+        "zona_10",
+        "zona_11"
+      ]
+    },
+    "proveedor": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::proveedor.proveedor"
+    },
+    "fechaCreacion": {
+      "type": "date"
+    },
+    "fechaUltimaModificacion": {
+      "type": "date"
+    },
+    "horaCreacion": {
+      "type": "time"
+    },
+    "horaModificacion": {
+      "type": "time"
+    },
+    "creadoPorUsuario": {
+      "type": "string"
+    },
+    "modificadoPorUsuario": {
+      "type": "string"
+    },
+    "deleted": {
+      "type": "boolean"
+    }
+  }
+}
