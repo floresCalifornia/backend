@@ -12,7 +12,9 @@
   "pluginOptions": {},
   "attributes": {
     "codigoInterno": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "unique": true
     },
     "grupoInterno": {
       "type": "enumeration",
@@ -28,7 +30,9 @@
       "required": true
     },
     "descripcion": {
-      "type": "string"
+      "type": "string",
+      "required": true
+
     },
     "categoria": {
       "type": "enumeration",
@@ -37,10 +41,13 @@
         "fertilizantes",
         "marcacion",
         "otros"
-      ]
+      ],
+      "required": true
+
     },
     "cantidad": {
-      "type": "biginteger"
+      "type": "biginteger",
+      "default" : 0
     },
     "unidadMedida": {
       "type": "enumeration",
@@ -58,7 +65,9 @@
         "comercial",
         "disponible",
         "agotado"
-      ]
+      ],
+      "required": true,
+      "default": "agotado"
     },
     "ubicacionBodega": {
       "type": "enumeration",
@@ -107,28 +116,36 @@
     "proveedor": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::proveedor.proveedor"
+      "target": "api::proveedor.proveedor",
+      "required": true
     },
     "fechaCreacion": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "fechaUltimaModificacion": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "horaCreacion": {
-      "type": "time"
+      "type": "time",
+      "required": true
     },
     "horaModificacion": {
-      "type": "time"
+      "type": "time",
+      "required": true
     },
     "creadoPorUsuario": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "modificadoPorUsuario": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "deleted": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     }
   }
 }

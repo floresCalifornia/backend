@@ -52,7 +52,6 @@
     "descripcion": {
       "type": "string",
       "required": true
-
     },
     "costoUnitario": {
       "type": "biginteger"
@@ -73,7 +72,8 @@
         "resiembra",
         "comercial",
         "agotado"
-      ]
+      ],
+      "required": true
     },
     "estadoComercial": {
       "type": "enumeration",
@@ -82,14 +82,16 @@
         "no disponible",
         "vendido",
         "consignacion"
-      ]
+      ],
+      "required": true
     },
     "estadoWeb": {
       "type": "enumeration",
       "enum": [
         "disponible",
         "no disponible"
-      ]
+      ],
+      "required": true
     },
     "ubicacionInvernadero": {
       "type": "enumeration",
@@ -138,7 +140,8 @@
     "proveedor": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::proveedor.proveedor"
+      "target": "api::proveedor.proveedor",
+      "required": true
     },
     "cliente": {
       "type": "relation",
@@ -146,25 +149,32 @@
       "target": "api::cliente.cliente"
     },
     "fechaCreacion": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "fechaUltimaModificacion": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "horaCreacion": {
-      "type": "time"
+      "type": "time",
+      "required": true
     },
     "horaModificacion": {
-      "type": "time"
+      "type": "time",
+      "required": true
     },
     "creadoPorUsuario": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "modificadoPorUsuario": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "deleted": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     }
   }
 }

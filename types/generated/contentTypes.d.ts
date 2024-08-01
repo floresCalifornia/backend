@@ -919,7 +919,7 @@ export interface ApiInsumoProduccionInsumoProduccion
     draftAndPublish: false;
   };
   attributes: {
-    codigoInterno: Attribute.String;
+    codigoInterno: Attribute.String & Attribute.Required & Attribute.Unique;
     grupoInterno: Attribute.Enumeration<
       [
         'fc01_orquideas',
@@ -932,15 +932,18 @@ export interface ApiInsumoProduccionInsumoProduccion
       ]
     > &
       Attribute.Required;
-    descripcion: Attribute.String;
+    descripcion: Attribute.String & Attribute.Required;
     categoria: Attribute.Enumeration<
       ['materas', 'fertilizantes', 'marcacion', 'otros']
-    >;
-    cantidad: Attribute.BigInteger;
+    > &
+      Attribute.Required;
+    cantidad: Attribute.BigInteger & Attribute.DefaultTo<0>;
     unidadMedida: Attribute.Enumeration<['un', 'gr', 'kg']>;
     estadoInterno: Attribute.Enumeration<
       ['inventario', 'resiembra', 'comercial', 'disponible', 'agotado']
-    >;
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'agotado'>;
     ubicacionBodega: Attribute.Enumeration<
       [
         'bodega_1',
@@ -986,14 +989,15 @@ export interface ApiInsumoProduccionInsumoProduccion
       'api::insumo-produccion.insumo-produccion',
       'oneToOne',
       'api::proveedor.proveedor'
-    >;
-    fechaCreacion: Attribute.Date;
-    fechaUltimaModificacion: Attribute.Date;
-    horaCreacion: Attribute.Time;
-    horaModificacion: Attribute.Time;
-    creadoPorUsuario: Attribute.String;
-    modificadoPorUsuario: Attribute.String;
-    deleted: Attribute.Boolean;
+    > &
+      Attribute.Required;
+    fechaCreacion: Attribute.Date & Attribute.Required;
+    fechaUltimaModificacion: Attribute.Date & Attribute.Required;
+    horaCreacion: Attribute.Time & Attribute.Required;
+    horaModificacion: Attribute.Time & Attribute.Required;
+    creadoPorUsuario: Attribute.String & Attribute.Required;
+    modificadoPorUsuario: Attribute.String & Attribute.Required;
+    deleted: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1022,7 +1026,7 @@ export interface ApiInsumoVentaInsumoVenta extends Schema.CollectionType {
     draftAndPublish: false;
   };
   attributes: {
-    codigoInterno: Attribute.String;
+    codigoInterno: Attribute.String & Attribute.Required & Attribute.Unique;
     grupoInterno: Attribute.Enumeration<
       [
         'fc01_orquideas',
@@ -1035,19 +1039,26 @@ export interface ApiInsumoVentaInsumoVenta extends Schema.CollectionType {
       ]
     > &
       Attribute.Required;
-    descripcion: Attribute.String;
+    descripcion: Attribute.String & Attribute.Required;
     categoria: Attribute.Enumeration<
       ['materas', 'fertilizantes', 'marcacion', 'otros']
-    >;
-    cantidad: Attribute.BigInteger;
+    > &
+      Attribute.Required;
+    cantidad: Attribute.BigInteger & Attribute.DefaultTo<0>;
     unidadMedida: Attribute.Enumeration<['un', 'gr', 'kg']>;
     estadoInterno: Attribute.Enumeration<
       ['inventario', 'resiembra', 'comercial', 'disponible', 'agotado']
-    >;
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'agotado'>;
     estadoComercial: Attribute.Enumeration<
-      ['disponible', 'vendido', 'consignacion']
-    >;
-    estadoWeb: Attribute.Enumeration<['disponible', 'no disponible']>;
+      ['disponible', 'no-disponible', 'vendido', 'consignacion']
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'no-disponible'>;
+    estadoWeb: Attribute.Enumeration<['disponible', 'no disponible']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'no-disponible'>;
     ubicacionBodega: Attribute.Enumeration<
       [
         'bodega_1',
@@ -1093,14 +1104,15 @@ export interface ApiInsumoVentaInsumoVenta extends Schema.CollectionType {
       'api::insumo-venta.insumo-venta',
       'oneToOne',
       'api::proveedor.proveedor'
-    >;
-    fechaCreacion: Attribute.Date;
-    fechaUltimaModificacion: Attribute.Date;
-    horaCreacion: Attribute.Time;
-    horaModificacion: Attribute.Time;
-    creadoPorUsuario: Attribute.String;
-    modificadoPorUsuario: Attribute.String;
-    deleted: Attribute.Boolean;
+    > &
+      Attribute.Required;
+    fechaCreacion: Attribute.Date & Attribute.Required;
+    fechaUltimaModificacion: Attribute.Date & Attribute.Required;
+    horaCreacion: Attribute.Time & Attribute.Required;
+    horaModificacion: Attribute.Time & Attribute.Required;
+    creadoPorUsuario: Attribute.String & Attribute.Required;
+    modificadoPorUsuario: Attribute.String & Attribute.Required;
+    deleted: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1155,11 +1167,14 @@ export interface ApiPlantaPlanta extends Schema.CollectionType {
     plantaOrigen: Attribute.String;
     estadoInterno: Attribute.Enumeration<
       ['inventario', 'resiembra', 'comercial', 'agotado']
-    >;
+    > &
+      Attribute.Required;
     estadoComercial: Attribute.Enumeration<
       ['disponible', 'no disponible', 'vendido', 'consignacion']
-    >;
-    estadoWeb: Attribute.Enumeration<['disponible', 'no disponible']>;
+    > &
+      Attribute.Required;
+    estadoWeb: Attribute.Enumeration<['disponible', 'no disponible']> &
+      Attribute.Required;
     ubicacionInvernadero: Attribute.Enumeration<
       [
         'invernadero_1',
@@ -1205,19 +1220,20 @@ export interface ApiPlantaPlanta extends Schema.CollectionType {
       'api::planta.planta',
       'oneToOne',
       'api::proveedor.proveedor'
-    >;
+    > &
+      Attribute.Required;
     cliente: Attribute.Relation<
       'api::planta.planta',
       'oneToOne',
       'api::cliente.cliente'
     >;
-    fechaCreacion: Attribute.Date;
-    fechaUltimaModificacion: Attribute.Date;
-    horaCreacion: Attribute.Time;
-    horaModificacion: Attribute.Time;
-    creadoPorUsuario: Attribute.String;
-    modificadoPorUsuario: Attribute.String;
-    deleted: Attribute.Boolean;
+    fechaCreacion: Attribute.Date & Attribute.Required;
+    fechaUltimaModificacion: Attribute.Date & Attribute.Required;
+    horaCreacion: Attribute.Time & Attribute.Required;
+    horaModificacion: Attribute.Time & Attribute.Required;
+    creadoPorUsuario: Attribute.String & Attribute.Required;
+    modificadoPorUsuario: Attribute.String & Attribute.Required;
+    deleted: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1273,9 +1289,7 @@ export interface ApiProveedorProveedor extends Schema.CollectionType {
     horaModificacion: Attribute.Time & Attribute.Required;
     creadoPorUsuario: Attribute.String & Attribute.Required;
     modificadoPorUsuario: Attribute.String & Attribute.Required;
-    deleted: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
+    deleted: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
